@@ -169,10 +169,10 @@
         color: #a0a5aa; /* Gece için biraz daha açık füme */
       }
       :root[data-theme="dark"] #scoreRow .hp svg {
-        fill: #e8eaed;
+        color: #e8eaed;
       }
       :root[data-theme="dark"] #scoreRow .hp.off svg {
-        fill: #5f6368;
+        color: #5f6368;
       }
 
       /* Tüm ekranlarda mesaj konumu */
@@ -367,16 +367,14 @@
         width: 18px;
         height: 18px;
         display: block;
-        color: var(--fg); /* Rengi doğrudan color özelliğine bağladık */
+        color: var(--fg); /* Rengi temaya bağlar */
+        fill: var(--fg);  /* Tarayıcı boşluk bırakmasın diye dolguyu zorlar */
+        shape-rendering: crispEdges; /* Piksellerin birleşmesini (çizgileri) sağlar */
       }
 
       #scoreRow .hp.off svg {
-        color: #b0b0b0; /* fill yerine color kullanıyoruz */
-        opacity: 0.4;   /* Biraz daha belirgin solukluk */
-      }
-
-      #scoreRow .hp.off {
-        opacity: 1;
+        color: #b0b0b0;
+        fill: #b0b0b0; /* Can bitince sadece rengi değişir, şeffaf olmaz */
       }
 
       #lives {
