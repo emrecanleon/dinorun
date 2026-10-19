@@ -1413,8 +1413,10 @@
         let themeBg = "#f7f7f7";
         function refreshThemeColors() {
           const cs = getComputedStyle(document.documentElement);
-          themeFg = cs.getPropertyValue("--fg").trim() || "#202124";
-          themeBg = cs.getPropertyValue("--bg").trim() || "#f7f7f7";
+          const fg = cs.getPropertyValue("--fg").trim();
+          const bg = cs.getPropertyValue("--bg").trim();
+          if (fg) themeFg = fg;
+          if (bg) themeBg = bg;
         }
         refreshThemeColors();
 
@@ -1700,6 +1702,7 @@
         });
 
         applyLang();
+        requestAnimationFrame(refreshThemeColors);
 
         // ===== SES BUTONU =====
         const soundBtn = document.getElementById("soundBtn");
