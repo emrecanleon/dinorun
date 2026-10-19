@@ -2659,7 +2659,13 @@
           }
         });
 
+        // Hem dokunmatik (iPad/iPhone) hem fare (PC) desteği
         canvas.addEventListener("pointerdown", () => jump());
+        canvas.addEventListener("touchstart", (e) => {
+          e.preventDefault(); // Tarayıcının zoom yapmasını engelle
+          jump();
+        }, { passive: false });
+        canvas.addEventListener("mousedown", () => jump());
 
         renderLives();
         requestAnimationFrame(() => {
