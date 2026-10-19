@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -1690,7 +1690,7 @@
           setMsg("start");
           closeConfirm();
           document.documentElement.setAttribute("data-theme", "light");
-          requestAnimationFrame(refreshThemeColors);
+          refreshThemeColors();
         }
         resetBtn.addEventListener("click", () => {
           confirmOpen ? closeConfirm() : openConfirm();
@@ -2033,7 +2033,7 @@
           nightT = 0;
           // Tema'yı gündüze döndür
           document.documentElement.setAttribute("data-theme", "light");
-          requestAnimationFrame(refreshThemeColors);
+          refreshThemeColors();
           hillFar = 0;
           hillNear = 0;
           lives = 2;
@@ -2188,7 +2188,7 @@
               night ? "dark" : "light",
             );
             // Canvas renklerini de yeni temaya göre güncelle
-            requestAnimationFrame(refreshThemeColors);
+            refreshThemeColors();
           }
           nightT = Math.max(
             0,
@@ -2555,7 +2555,8 @@
 
         function draw() {
           ctx.setTransform(RENDER_SCALE, 0, 0, RENDER_SCALE, 0, 0);
-          // Cache'lenmiş tema renkleri (data-theme değişince güncellenir)
+          // Tema renklerini her frame'de CSS'ten oku
+          refreshThemeColors();
           const fg = themeFg;
           const bg = themeBg;
 
