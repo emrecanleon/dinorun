@@ -1690,7 +1690,7 @@
           setMsg("start");
           closeConfirm();
           document.documentElement.setAttribute("data-theme", "light");
-          refreshThemeColors();
+          requestAnimationFrame(refreshThemeColors);
         }
         resetBtn.addEventListener("click", () => {
           confirmOpen ? closeConfirm() : openConfirm();
@@ -2033,7 +2033,7 @@
           nightT = 0;
           // Tema'yı gündüze döndür
           document.documentElement.setAttribute("data-theme", "light");
-          refreshThemeColors();
+          requestAnimationFrame(refreshThemeColors);
           hillFar = 0;
           hillNear = 0;
           lives = 2;
@@ -2188,7 +2188,7 @@
               night ? "dark" : "light",
             );
             // Canvas renklerini de yeni temaya göre güncelle
-            refreshThemeColors();
+            requestAnimationFrame(refreshThemeColors);
           }
           nightT = Math.max(
             0,
