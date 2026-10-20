@@ -829,9 +829,9 @@
         min-width: 150px;
         width: 150px;
         max-width: 150px;
-        font-size: 12px;
-        padding: 6px 8px;
-        min-height: 36px;
+        font-size: 13px;       /* Fontu 12'den 13'e çıkardık */
+        padding: 9px 10px;     /* İç boşluğu 6px 8px'ten 9px 10px'e çıkardık → kutu boyu uzar */
+        min-height: 42px;      /* Minimum yüksekliği 36'dan 42'ye çıkardık */
       }
       html.no-flex-gap .hud-btn > * + * {
         margin-left: 4px;
@@ -892,8 +892,8 @@
       /* Dil menüsü: bayrak ve yazı ayrık */
       html.no-flex-gap .lang-item {
         gap: 0;
-        padding: 4px 6px;
-        font-size: 11px;
+        padding: 7px 10px;     
+        font-size: 13px;       
       }
       html.no-flex-gap .lang-item svg {
         flex-shrink: 0;
@@ -910,8 +910,8 @@
         vertical-align: middle;
       }
       html.no-flex-gap #langMenu {
-        min-width: 110px;
-        padding: 4px;
+        min-width: 150px;      /* 110'dan 150'ye çıkardık */
+        padding: 6px;          /* 4'ten 6'ya çıkardık */
       }
 
       /* Reset menüsü */
