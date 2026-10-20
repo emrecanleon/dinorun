@@ -218,17 +218,23 @@
 
       #about {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
         z-index: 50;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 16px;
         background: rgba(0, 0, 0, 0.55);
+        box-sizing: border-box;
       }
 
       #about[hidden] {
-        display: none;
+        display: none !important;
       }
 
       .hud {
@@ -988,6 +994,19 @@
       html.no-flex-gap[dir="rtl"] .hud-btn > * + * {
         margin-left: 0;
         margin-right: 4px;
+      }
+
+      html.no-flex-gap #about:not([hidden]) {
+        display: flex;
+      }
+      /* hidden iken kesinlikle gizle (temel kuralı garantiye al) */
+      html.no-flex-gap #about[hidden] {
+        display: none !important;
+      }
+      html.no-flex-gap #aboutPanel {
+        margin: auto;
+        max-height: 90vh;
+        box-sizing: border-box;
       }
     </style>
   </head>
