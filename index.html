@@ -6,6 +6,27 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
     />
+    <script>
+      /*
+       * Sadece Android'de viewport-fit=cover'ı kaldırır.
+       * Chrome 135+ PWA (standalone) modunda yatay ekranda safe-area-inset
+       * değerlerini yanlış hesapladığı için sağ/sol kesilmesine neden oluyor.
+       * Bu script hatayı tetikleyen koşulu (viewport-fit=cover) Android'de
+       * devre dışı bırakır. iOS, iPad, masaüstü ve Android tabletlerde
+       * HİÇBİR ŞEY değiştirmez.
+       */
+      (function () {
+        if (/Android/i.test(navigator.userAgent)) {
+          var vp = document.querySelector('meta[name="viewport"]');
+          if (vp) {
+            vp.setAttribute(
+              "content",
+              "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+            );
+          }
+        }
+      })();
+    </script>
     <title>DinoRun</title>
     <meta
       name="description"
